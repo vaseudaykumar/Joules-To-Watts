@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 '--------------------------------------------
 ' Legacy 32-bit VBA Macro for Exception Report
 '--------------------------------------------
@@ -50,3 +51,57 @@ Sub BranchExceptionReport()
     MsgBox "Report completed in " & (GetTickCount - startTime) & " ms."
 
 End Sub
+=======
+'--------------------------------------------
+' Legacy 32-bit VBA Macro for Exception Report
+'--------------------------------------------
+
+' Simulating typical Win API usage
+Declare Function GetTickCount Lib "kernel32" () As Long
+Declare Function GetActiveWindow Lib "user32" () As Long
+Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" ( _
+    ByVal hWnd As Long, _
+    ByVal lpString As String, _
+    ByVal cch As Long) As Long
+
+Sub BranchExceptionReport()
+
+    Dim startTime As Long
+    startTime = GetTickCount
+
+    Dim hWnd As Long
+    hWnd = GetActiveWindow()
+
+    Dim title As String * 255
+    Dim titleLen As Long
+    titleLen = GetWindowText(hWnd, title, 255)
+
+    If titleLen > 0 Then
+        MsgBox "Running report from window: " & Left(title, titleLen)
+    End If
+
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("Exceptions")
+
+    Dim i As Long
+    For i = 2 To ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
+        Dim branchCode As String
+        Dim txnAmount As Double
+        branchCode = ws.Cells(i, 1).Value
+        txnAmount = ws.Cells(i, 3).Value
+
+        If txnAmount > 100000 Then
+            ws.Cells(i, 5).Value = "High Value Alert"
+        ElseIf txnAmount < 0 Then
+            ws.Cells(i, 5).Value = "Negative Amount"
+        ElseIf txnAmount = 0 Then
+            ws.Cells(i, 5).Value = "Zero Transaction"
+        Else
+            ws.Cells(i, 5).Value = "Normal"
+        End If
+    Next i
+
+    MsgBox "Report completed in " & (GetTickCount - startTime) & " ms."
+
+End Sub
+>>>>>>> 05b78ed6aeeee0aff115097f45a21667e4d98a58

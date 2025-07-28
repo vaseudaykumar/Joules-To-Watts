@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INFO:root:10:25:51: Please wait, while generating Exception Report
 INFO:root:10:25:51: Reading the Transaction File
 INFO:root:10:25:51: Adding Exception status
@@ -8,3 +9,15 @@ INFO:root:10:25:51: Loading the excel for formatting
 INFO:root:10:25:51: Aligning the cells to center & autofitting the cells
 INFO:root:10:25:51: Saving back the excel file
 INFO:root:10:25:51: Completed creating Exception Report
+=======
+INFO:root:10:25:51: Please wait, while generating Exception Report
+INFO:root:10:25:51: Reading the Transaction File
+INFO:root:10:25:51: Adding Exception status
+INFO:root:10:25:51: Creating output file path
+INFO:root:10:25:51: Output file path: C:/Users/vaseh/Downloads/Uday/Technical Assesment/Python\Exception Report.xlsx
+INFO:root:10:25:51: Formatting the output file, this may take a while
+INFO:root:10:25:51: Loading the excel for formatting
+INFO:root:10:25:51: Aligning the cells to center & autofitting the cells
+INFO:root:10:25:51: Saving back the excel file
+INFO:root:10:25:51: Completed creating Exception Report
+>>>>>>> 05b78ed6aeeee0aff115097f45a21667e4d98a58
